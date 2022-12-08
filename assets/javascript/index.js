@@ -8,11 +8,11 @@ let quizQuestions = ["Which of the following methods is used to access HTML elem
 
 let questionsVar = document.getElementById("questions-container");
 
-questionsVar.setAttribute("Style", "display: none");
+// questionsVar.setAttribute("Style", "display: none");
 
-let startQuiz = startButton.addEventListener("click", function() {
-    document.getElementById("initial-container").style.display = "none";
-    if (questionsVar.setAttribute("Style", "display: none") === true) {
-        questionsVar.setAttribute("Style", "display: block");
-    }
-})
+// let startQuiz = startButton.addEventListener("click", function() {
+//     document.getElementById("initial-container").style.display = "none";
+//     if (questionsVar.setAttribute("Style", "display: none") === true) {
+//         questionsVar.setAttribute("Style", "display: block");
+//     }
+// })

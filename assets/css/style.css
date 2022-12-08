@@ -30,3 +30,13 @@ header {
     display: flex;
     justify-content: space-between;
 }
+
+#questions {
+    display: flex;
+    justify-content: center;
+}
+
+#answer-buttons {
+    display: flex;
+    justify-content: center;
+}
