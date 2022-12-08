@@ -1,0 +1,32 @@
+body {
+    font-family: Roboto;
+    color: white;
+    background-color: black;
+}
+
+#strt-button {
+    cursor: pointer;
+}
+
+#button-div {
+    display: flex;
+    justify-content: center;
+}
+
+#quiz-rules {
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 50px;
+}
+
+#quiz-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}

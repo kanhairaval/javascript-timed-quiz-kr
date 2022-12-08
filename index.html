@@ -1,17 +1,65 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Roboto&display=swap" rel="stylesheet">
     <title>JavaScript Timed Quiz - KR</title>
+
 </head>
 
 <body>
-    
+
+    <header>
+
+        <div id="high-score">Score:</div>
+        <div id="time-left">Time Remaining:</div>
+
+    </header>
+
+    <div class="card">
+
+        <div id="initial-container" class="hide">
+
+            <h1 id="quiz-title">JavaScript Quiz</h1>
+
+            <p id="quiz-rules">Welcome to JavaScript for beginners quiz. You will have 60 seconds to answer all the questions. Right answer, will gain you 10 points, any wrong answers and you shall lose 10 seconds from the remaining time & you won't be awarder any points. Good luck !!!</p>
+
+            <div id="button-div">
+
+                <button id="strt-button">Start Quiz</button>
+                
+            </div>
+
+            </div>
+
+            </div>
+
+            <div id="questions-container" class="hide">
+
+        <div id="questions">Questions</div>
+
+        <div id="answer-buttons" class="btn-list">
+
+            <button class="btn">Answer 1</button>
+
+            <button class="btn">Answer 2</button>
+
+            <button class="btn">Answer 3</button>
+
+            <button class="btn">Answer 4</button>
+
+        </div>
+
+        </div>
 
     <script src="./assets/javascript/index.js"></script>
 
 </body>
+
 </html>
