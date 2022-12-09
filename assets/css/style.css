@@ -83,3 +83,14 @@ input {
     font-size: 20px;
     border-radius: 10px;
 }
+
+#correct-text {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#incorrect-text {
+    display: flex;
+    justify-content: center;
+}

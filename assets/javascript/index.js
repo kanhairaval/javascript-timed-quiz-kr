@@ -10,6 +10,14 @@ let answerThree = document.getElementById("ans-3");
 let answerFour = document.getElementById("ans-4");
 let endOfQuiz = document.getElementById("end-quiz");
 let questionsVar = document.getElementById("questions-container");
+let answerButton = document.querySelectorAll(".btn");
+let correctText = document.getElementById("correct-text");
+let inCorrectText = document.getElementById("incorrect-text");
+
+questionsVar.setAttribute("Style", "display: none");
+endOfQuiz.setAttribute("Style", "display: none");
+correctText.setAttribute("Style", "display: none");
+inCorrectText.setAttribute("Style", "display: none");
 
 let quizQuestions = [
     {question: "Which of the following function of String object returns the calling string value converted to upper case?", answers: [{text: "toLocaleUpperCase()", correct: false}, {text: "toUpperCase()", correct: true}, {text: "toString()", correct: false}, {text: "substring()", correct: false}]}, 
@@ -25,9 +33,6 @@ let shuffledQuizQuestions = function shuffle(quizQuestions) {
         let newQuizQuestions = index;
     }
 }
-
-questionsVar.setAttribute("Style", "display: none");
-endOfQuiz.setAttribute("Style", "display: none");
 
 let startQuiz = startButton.addEventListener("click", function() {
     document.getElementById("initial-container").style.display = "none";
@@ -57,6 +62,11 @@ let renderQuestions = function () {
     answerTwo.textContent = quizQuestions[0].answers[1].text;
     answerThree.textContent = quizQuestions[0].answers[2].text;
     answerFour.textContent = quizQuestions[0].answers[3].text;
+
+    answerButton.addEventListener("click", function () {
+        if (answerButton === quizQuestions.answers.correct.true);
+        correctText.setAttribute("Style", "display: block");
+    })
 }
 
 function displayMessage () {
