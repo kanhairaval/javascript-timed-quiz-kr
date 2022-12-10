@@ -13,6 +13,7 @@ let questionsVar = document.getElementById("questions-container");
 let answerButton = document.querySelectorAll(".btn");
 let correctText = document.getElementById("correct-text");
 let inCorrectText = document.getElementById("incorrect-text");
+let newShuffledQuizQuestions = [];
 
 questionsVar.setAttribute("Style", "display: none");
 endOfQuiz.setAttribute("Style", "display: none");
@@ -40,13 +41,13 @@ let quizQuestions = [
     answer: "for (i = 0; i <= 5; i++)"}
     ]
 
-let shuffledQuizQuestions = function shuffle(quizQuestions) {
-    for (let i = 0; i < quizQuestions.question.length; i++) {
-        let index = quizQuestions[Math.floor(Math.random() * quizQuestions.length)];
-        let newQuizQuestions = index;
+    function shuffle(quizQuestions) {
+        for (let i = 0; i < quizQuestions.length; i++) {
+            let index = quizQuestions[Math.floor(Math.random() * quizQuestions.length)];
+            newShuffledQuizQuestions.push(index);
+        }
+        return newShuffledQuizQuestions;
     }
-    return newQuizQuestions;
-}
 
 let startQuiz = startButton.addEventListener("click", function() {
     document.getElementById("initial-container").style.display = "none";
@@ -71,15 +72,16 @@ let startQuiz = startButton.addEventListener("click", function() {
 
 let renderQuestions = function () {
     questionsVar.style.display = "block";
-    questionsStart.textContent = quizQuestions[0].question;
-    answerOne.textContent = quizQuestions[0].answers[0];
-    answerTwo.textContent = quizQuestions[0].answers[1];
-    answerThree.textContent = quizQuestions[0].answers[2];
-    answerFour.textContent = quizQuestions[0].answers[3];
+    questionsStart.textContent = newShuffledQuizQuestions[0].question;
+    answerOne.textContent = newShuffledQuizQuestions[0].answers[0];
+    answerTwo.textContent = newShuffledQuizQuestions[0].answers[1];
+    answerThree.textContent = newShuffledQuizQuestions[0].answers[2];
+    answerFour.textContent = newShuffledQuizQuestions[0].answers[3];
 
     answerButton.addEventListener("click", function () {
-        if (answerButton === quizQuestions.answer.);
+        if (answerButton === quizQuestions.answer);
         correctText.setAttribute("Style", "display: block");
+        displayMessage ();
     })
 }
 
