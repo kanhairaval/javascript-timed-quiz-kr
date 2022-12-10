@@ -49,6 +49,8 @@ let quizQuestions = [
         return newShuffledQuizQuestions;
     }
 
+    shuffle(quizQuestions);
+
 let startQuiz = startButton.addEventListener("click", function() {
     document.getElementById("initial-container").style.display = "none";
     if (questionsVar.style.display === "none") {
@@ -77,13 +79,13 @@ let renderQuestions = function () {
     answerTwo.textContent = newShuffledQuizQuestions[0].answers[1];
     answerThree.textContent = newShuffledQuizQuestions[0].answers[2];
     answerFour.textContent = newShuffledQuizQuestions[0].answers[3];
-
-    answerButton.addEventListener("click", function () {
-        if (answerButton === quizQuestions.answer);
-        correctText.setAttribute("Style", "display: block");
-        displayMessage ();
-    })
 }
+
+answerButton.addEventListener("click", function () {
+    if (answerButton === newShuffledQuizQuestions.answer);
+    correctText.setAttribute("Style", "display: block");
+    // displayMessage ();
+})
 
 function displayMessage () {
     questionsVar.style.display = "none";
