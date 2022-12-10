@@ -20,18 +20,32 @@ correctText.setAttribute("Style", "display: none");
 inCorrectText.setAttribute("Style", "display: none");
 
 let quizQuestions = [
-    {question: "Which of the following function of String object returns the calling string value converted to upper case?", answers: [{text: "toLocaleUpperCase()", correct: false}, {text: "toUpperCase()", correct: true}, {text: "toString()", correct: false}, {text: "substring()", correct: false}]}, 
-    {question: "Inside which HTML element do we put the JavaScript?", answers: [{text: "<javascript>", correct: false}, {text: "<js>", correct: false}, {text: "<scripting>", correct: false}, {text: "<script>", correct: true}]},
-    {question: "How do you write Hello World in an alert box?", answers: [{text: "msgBox('Hello World')", correct: false}, {text: "alert('Hello Wolrd')", correct: true}, {text: "msg('Hello World')", correct: false}, {text: "alertBox('Hello World')", correct: false},]},
-    {question: "How to write an IF statement in JavaScript?", answers: [{text: "if (i === 5)", correct: true}, {text: "if i == 5 then", correct: false}, {text: "if i = 5 then", correct: false}, {text: "if i = 5", correct: false}]},
-    {question: "How to write an IF statement for executing some code if i is NOT equal to 5?", answers: [{text: "if (i != 5)", correct: true}, {text: "if i =! 5 then", correct: false}, {text: "if i <> 5", correct: false}, {text: "if (i <> 5)", correct: false}]},
-    {question: "How does a FOR loop start?", answers: [{text: "for (i <= 5; i++)", correct: false}, {text: "for (i = 0; i <= 5)", correct: false}, {text: "for (i = 0; i <= 5; i++)", correct: true}, {text: "for i = 1 to 5", correct: false}]}];
+    {question: "Which of the following function of String object returns the calling string value converted to upper case?",
+    answers: ["toLocaleUpperCase()", "toUpperCase()", "toString()", "substring()"],
+    answer: "toUpperCase()"},
+    {question: "Inside which HTML element do we put the JavaScript?",
+    answers: ["<javascript>", "<js>", "<scripting>", "<script>"],
+    answer: "<script>"},
+    {question: "How do you write Hello World in an alert box?",
+    answers: ["msgBox('Hello World')", "alert('Hello World')", "msg('Hello World')", "alertBox('Hello World')"],
+    answer: "alert('Hello World')"},
+    {question: "How to write an IF statement in JavaScript?",
+    answers: ["if (i === 5)", "if i == 5 then", "if i = 5 then", "if i = 5"],
+    answer: "if (i === 5)"},
+    {question: "How to write an IF statement for executing some code if i is NOT equal to 5?",
+    answers: ["if (i != 5)", "if i =! 5 then", "if i <> 5", "if (i <> 5)"],
+    answer: "if (i != 5)"},
+    {question: "How does a FOR loop start?",
+    answers: ["for (i <= 5; i++)", "for (i = 0; i <= 5)", "for (i = 0; i <= 5; i++)", "for i = 1 to 5"],
+    answer: "for (i = 0; i <= 5; i++)"}
+    ]
 
 let shuffledQuizQuestions = function shuffle(quizQuestions) {
-    for (let i = 0; i < quizQuestions.length; i++) {
-        let index = Math.floor(Math.random() * quizQuestions.length)
+    for (let i = 0; i < quizQuestions.question.length; i++) {
+        let index = quizQuestions[Math.floor(Math.random() * quizQuestions.length)];
         let newQuizQuestions = index;
     }
+    return newQuizQuestions;
 }
 
 let startQuiz = startButton.addEventListener("click", function() {
@@ -58,15 +72,15 @@ let startQuiz = startButton.addEventListener("click", function() {
 let renderQuestions = function () {
     questionsVar.style.display = "block";
     questionsStart.textContent = quizQuestions[0].question;
-    answerOne.textContent = quizQuestions[0].answers[0].text;
-    answerTwo.textContent = quizQuestions[0].answers[1].text;
-    answerThree.textContent = quizQuestions[0].answers[2].text;
-    answerFour.textContent = quizQuestions[0].answers[3].text;
+    answerOne.textContent = quizQuestions[0].answers[0];
+    answerTwo.textContent = quizQuestions[0].answers[1];
+    answerThree.textContent = quizQuestions[0].answers[2];
+    answerFour.textContent = quizQuestions[0].answers[3];
 
-    answerButton.addEventListener("click", function () {
-        if (answerButton === quizQuestions.answers.correct.true);
-        correctText.setAttribute("Style", "display: block");
-    })
+    // answerButton.addEventListener("click", function () {
+    //     if (answerButton === quizQuestions.answers.correct.true);
+    //     correctText.setAttribute("Style", "display: block");
+    // })
 }
 
 function displayMessage () {
