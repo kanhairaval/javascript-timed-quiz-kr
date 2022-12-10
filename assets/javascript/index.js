@@ -77,10 +77,10 @@ let renderQuestions = function () {
     answerThree.textContent = quizQuestions[0].answers[2];
     answerFour.textContent = quizQuestions[0].answers[3];
 
-    // answerButton.addEventListener("click", function () {
-    //     if (answerButton === quizQuestions.answers.correct.true);
-    //     correctText.setAttribute("Style", "display: block");
-    // })
+    answerButton.addEventListener("click", function () {
+        if (answerButton === quizQuestions.answer.);
+        correctText.setAttribute("Style", "display: block");
+    })
 }
 
 function displayMessage () {
