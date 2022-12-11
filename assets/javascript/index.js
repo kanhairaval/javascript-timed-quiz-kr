@@ -81,11 +81,14 @@ let renderQuestions = function () {
     answerFour.textContent = newShuffledQuizQuestions[0].answers[3];
 }
 
-answerButton.addEventListener("click", function () {
-    if (answerButton === newShuffledQuizQuestions.answer);
+for (i = 0; i < answerButton.length; i++) {
+    answerButton.addEventListener("click", function () {
+    if (answerButton[i].textContent === newShuffledQuizQuestions[0].answer) {
     correctText.setAttribute("Style", "display: block");
-    // displayMessage ();
+    displayMessage ();
+}
 })
+};
 
 function displayMessage () {
     questionsVar.style.display = "none";

@@ -11,6 +11,8 @@ body {
     font-size: 20px;
     border-radius: 10px;
     border: none;
+    transition: background-color .15s,
+    color .15s;
 }
 
 #button-div {
@@ -70,6 +72,7 @@ input {
     margin: auto;
     height: 50px;
     border-radius: 20px;
+    border: none;
 }
 
 #submit-btn {
@@ -84,6 +87,7 @@ input {
     text-align: center;
     font-size: 20px;
     border-radius: 10px;
+    border: none;
 }
 
 #correct-text {
