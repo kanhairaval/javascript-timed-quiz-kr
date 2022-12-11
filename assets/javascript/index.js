@@ -3,6 +3,7 @@ let startButton = document.getElementById("strt-button");
 let leftHeader = document.getElementById("high-score");
 let rightHeader = document.getElementById("time-left");
 let timeLeft = 60;
+let score = 0;
 let questionsStart = document.getElementById("questions");
 let answerOne = document.getElementById("ans-1");
 let answerTwo = document.getElementById("ans-2");
@@ -14,11 +15,17 @@ let answerButton = document.querySelectorAll(".btn");
 let correctText = document.getElementById("correct-text");
 let inCorrectText = document.getElementById("incorrect-text");
 let newShuffledQuizQuestions = [];
+let endScreen = document.getElementById("final-score");
+let goBackBtn = document.getElementById("go-back");
+let clearScore = document.getElementById("clear-score");
 
 questionsVar.setAttribute("Style", "display: none");
 endOfQuiz.setAttribute("Style", "display: none");
 correctText.setAttribute("Style", "display: none");
 inCorrectText.setAttribute("Style", "display: none");
+// endScreen.setAttribute("Style", "display: none");
+// goBackBtn.setAttribute("Style", "display: none");
+// clearScore.setAttribute("Style", "display: none");
 
 let quizQuestions = [
     {question: "Which of the following function of String object returns the calling string value converted to upper case?",
@@ -56,7 +63,7 @@ let startQuiz = startButton.addEventListener("click", function() {
     if (questionsVar.style.display === "none") {
         renderQuestions();
     }
-    leftHeader.textContent = "View Score";
+    leftHeader.textContent = "Score:";
     setInterval(function() {
         if (timeLeft > 1) {
             rightHeader.textContent = `${timeLeft} seconds remaining`;
@@ -74,18 +81,24 @@ let startQuiz = startButton.addEventListener("click", function() {
 
 let renderQuestions = function () {
     questionsVar.style.display = "block";
-    questionsStart.textContent = newShuffledQuizQuestions[0].question;
-    answerOne.textContent = newShuffledQuizQuestions[0].answers[0];
-    answerTwo.textContent = newShuffledQuizQuestions[0].answers[1];
-    answerThree.textContent = newShuffledQuizQuestions[0].answers[2];
-    answerFour.textContent = newShuffledQuizQuestions[0].answers[3];
+    for (let i = 0; i < newShuffledQuizQuestions.length; i++) {
+    questionsStart.textContent = newShuffledQuizQuestions[i].question;
+    answerOne.textContent = newShuffledQuizQuestions[i].answers[i];
+    answerTwo.textContent = newShuffledQuizQuestions[i].answers[i];
+    answerThree.textContent = newShuffledQuizQuestions[i].answers[i];
+    answerFour.textContent = newShuffledQuizQuestions[i].answers[i];
+    }
 }
 
 for (i = 0; i < answerButton.length; i++) {
-    answerButton.addEventListener("click", function () {
-    if (answerButton[i].textContent === newShuffledQuizQuestions[0].answer) {
+    answerButton[i].addEventListener("click", function (event) {
+    if (event.target.textContent === newShuffledQuizQuestions[0].answer) {
     correctText.setAttribute("Style", "display: block");
-    displayMessage ();
+    score += 10;
+    leftHeader.innerText = (`Score: ${score}`);
+} else {
+    inCorrectText.setAttribute("Style", "display: block");
+    timeLeft -= 10;
 }
 })
 };
@@ -94,3 +107,33 @@ function displayMessage () {
     questionsVar.style.display = "none";
     endOfQuiz.setAttribute("Style", "display: block");
 }
+
+// questionsStart.textContent = newShuffledQuizQuestions[1].question;
+//     answerOne.textContent = newShuffledQuizQuestions[1].answers[0];
+//     answerTwo.textContent = newShuffledQuizQuestions[1].answers[1];
+//     answerThree.textContent = newShuffledQuizQuestions[1].answers[2];
+//     answerFour.textContent = newShuffledQuizQuestions[1].answers[3];
+
+//     questionsStart.textContent = newShuffledQuizQuestions[2].question;
+//     answerOne.textContent = newShuffledQuizQuestions[2].answers[0];
+//     answerTwo.textContent = newShuffledQuizQuestions[2].answers[1];
+//     answerThree.textContent = newShuffledQuizQuestions[2].answers[2];
+//     answerFour.textContent = newShuffledQuizQuestions[2].answers[3];
+
+//     questionsStart.textContent = newShuffledQuizQuestions[3].question;
+//     answerOne.textContent = newShuffledQuizQuestions[3].answers[0];
+//     answerTwo.textContent = newShuffledQuizQuestions[3].answers[1];
+//     answerThree.textContent = newShuffledQuizQuestions[3].answers[2];
+//     answerFour.textContent = newShuffledQuizQuestions[3].answers[3];
+
+//     questionsStart.textContent = newShuffledQuizQuestions[4].question;
+//     answerOne.textContent = newShuffledQuizQuestions[4].answers[0];
+//     answerTwo.textContent = newShuffledQuizQuestions[4].answers[1];
+//     answerThree.textContent = newShuffledQuizQuestions[4].answers[2];
+//     answerFour.textContent = newShuffledQuizQuestions[4].answers[3];
+
+//     questionsStart.textContent = newShuffledQuizQuestions[5].question;
+//     answerOne.textContent = newShuffledQuizQuestions[5].answers[0];
+//     answerTwo.textContent = newShuffledQuizQuestions[5].answers[1];
+//     answerThree.textContent = newShuffledQuizQuestions[5].answers[2];
+//     answerFour.textContent = newShuffledQuizQuestions[5].answers[3];
