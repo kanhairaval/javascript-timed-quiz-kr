@@ -144,3 +144,10 @@ input {
     transition: background-color .15s,
     color .15s;
 }
+
+#final-score {
+    display: flex;
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 50px;
+}

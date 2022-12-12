@@ -1,4 +1,3 @@
-// Welcome to JavaScript for beginners quiz. You will have 60 seconds to answer all the questions. Right answer, will gain you 10 points, any wrong answers and you shall lose 10 seconds from the remaining time & you won't be awarder any points. Good luck !!!
 let startButton = document.getElementById("strt-button");
 let leftHeader = document.getElementById("high-score");
 let rightHeader = document.getElementById("time-left");
@@ -19,14 +18,17 @@ let newShuffledQuizQuestions = [];
 let endScreen = document.getElementById("final-score");
 let goBackBtn = document.getElementById("go-back");
 let clearScore = document.getElementById("clear-score");
+let submitButton = document.getElementById("submit-btn");
+let inputField = document.getElementById("input-field");
+let endText = document.getElementById("end-text");
 
 questionsVar.setAttribute("Style", "display: none");
 endOfQuiz.setAttribute("Style", "display: none");
 correctText.setAttribute("Style", "display: none");
 inCorrectText.setAttribute("Style", "display: none");
-// endScreen.setAttribute("Style", "display: none");
-// goBackBtn.setAttribute("Style", "display: none");
-// clearScore.setAttribute("Style", "display: none");
+endScreen.setAttribute("Style", "display: none");
+goBackBtn.setAttribute("Style", "display: none");
+clearScore.setAttribute("Style", "display: none");
 
 let quizQuestions = [
     {question: "Which of the following function of String object returns the calling string value converted to upper case?",
@@ -50,9 +52,10 @@ let quizQuestions = [
     ]
 
     function shuffle(quizQuestions) {
-        for (let i = 0; i < quizQuestions.length; i++) {
-            let index = quizQuestions[Math.floor(Math.random() * quizQuestions.length)];
-            newShuffledQuizQuestions.push(index);
+        for (let i = 0; i < 6; i++) {
+            let index = Math.floor(Math.random() * quizQuestions.length);
+            newShuffledQuizQuestions.push(quizQuestions[index]);
+            quizQuestions.splice(index, 1);
         }
         return newShuffledQuizQuestions;
     }
@@ -93,12 +96,14 @@ for (i = 0; i < answerButton.length; i++) {
     answerButton[i].addEventListener("click", function (event) {
     if (event.target.textContent === newShuffledQuizQuestions[currentQuestionIndex].answer) {
     correctText.setAttribute("Style", "display: block");
+    inCorrectText.setAttribute("Style", "display: none");
     score += 10;
     leftHeader.innerText = (`Score: ${score}`);
     currentQuestionIndex ++;
     renderQuestions();
 } else {
     inCorrectText.setAttribute("Style", "display: block");
+    correctText.setAttribute("Style", "display: none");
     timeLeft -= 10;
     currentQuestionIndex ++;
     renderQuestions();
@@ -108,35 +113,46 @@ for (i = 0; i < answerButton.length; i++) {
 
 function displayMessage () {
     questionsVar.style.display = "none";
+    inCorrectText.setAttribute("Style", "display: none");
+    correctText.setAttribute("Style", "display: none");
     endOfQuiz.setAttribute("Style", "display: block");
+    leftHeader.innerText = (`Score: ${score}`);
 }
 
-// questionsStart.textContent = newShuffledQuizQuestions[1].question;
-//     answerOne.textContent = newShuffledQuizQuestions[1].answers[0];
-//     answerTwo.textContent = newShuffledQuizQuestions[1].answers[1];
-//     answerThree.textContent = newShuffledQuizQuestions[1].answers[2];
-//     answerFour.textContent = newShuffledQuizQuestions[1].answers[3];
+submitButton.addEventListener("click", function (event) {
 
-//     questionsStart.textContent = newShuffledQuizQuestions[2].question;
-//     answerOne.textContent = newShuffledQuizQuestions[2].answers[0];
-//     answerTwo.textContent = newShuffledQuizQuestions[2].answers[1];
-//     answerThree.textContent = newShuffledQuizQuestions[2].answers[2];
-//     answerFour.textContent = newShuffledQuizQuestions[2].answers[3];
+    event.preventDefault();
 
-//     questionsStart.textContent = newShuffledQuizQuestions[3].question;
-//     answerOne.textContent = newShuffledQuizQuestions[3].answers[0];
-//     answerTwo.textContent = newShuffledQuizQuestions[3].answers[1];
-//     answerThree.textContent = newShuffledQuizQuestions[3].answers[2];
-//     answerFour.textContent = newShuffledQuizQuestions[3].answers[3];
+    submitButton.setAttribute("Style", "display: none");
+    inputField.setAttribute("Style", "display: none");
+    endText.setAttribute("Style", "display: none");
+    endScreen.setAttribute("Style", "display: block");
+    endScreen.innerText = `Your Score: ${score}`
+    goBackBtn.setAttribute("Style", "display: block");
+    clearScore.setAttribute("Style", "display: block");
 
-//     questionsStart.textContent = newShuffledQuizQuestions[4].question;
-//     answerOne.textContent = newShuffledQuizQuestions[4].answers[0];
-//     answerTwo.textContent = newShuffledQuizQuestions[4].answers[1];
-//     answerThree.textContent = newShuffledQuizQuestions[4].answers[2];
-//     answerFour.textContent = newShuffledQuizQuestions[4].answers[3];
+    let initials = inputField.value;
 
-//     questionsStart.textContent = newShuffledQuizQuestions[5].question;
-//     answerOne.textContent = newShuffledQuizQuestions[5].answers[0];
-//     answerTwo.textContent = newShuffledQuizQuestions[5].answers[1];
-//     answerThree.textContent = newShuffledQuizQuestions[5].answers[2];
-//     answerFour.textContent = newShuffledQuizQuestions[5].answers[3];
+    if (initials === "") {
+        displayMessage("error", "Initials cannot be blank");
+      } else {
+        displayMessage("success", "Registered successfully");
+    
+      localStorage.setItem("initials", initials);
+      renderLastRegistered();
+      }
+})
+
+function renderLastRegistered() {
+    let initials = localStorage.getItem("initials");
+  
+    endScreen.innerText = `Your Score: ${initials} ${score}`
+  }
+
+  clearScore.addEventListener("click", function () {
+    endScreen.innerText = "Your Score:";
+  })
+
+  goBackBtn.addEventListener("click", function () {
+    startQuiz;
+  })
