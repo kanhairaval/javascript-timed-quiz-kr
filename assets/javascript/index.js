@@ -4,6 +4,7 @@ let leftHeader = document.getElementById("high-score");
 let rightHeader = document.getElementById("time-left");
 let timeLeft = 60;
 let score = 0;
+let currentQuestionIndex = 0;
 let questionsStart = document.getElementById("questions");
 let answerOne = document.getElementById("ans-1");
 let answerTwo = document.getElementById("ans-2");
@@ -81,22 +82,26 @@ let startQuiz = startButton.addEventListener("click", function() {
 
 let renderQuestions = function () {
     questionsVar.style.display = "block";
-    questionsStart.textContent = newShuffledQuizQuestions[0].question;
-    answerOne.textContent = newShuffledQuizQuestions[0].answers[0];
-    answerTwo.textContent = newShuffledQuizQuestions[0].answers[1];
-    answerThree.textContent = newShuffledQuizQuestions[0].answers[2];
-    answerFour.textContent = newShuffledQuizQuestions[0].answers[3];
+    questionsStart.textContent = newShuffledQuizQuestions[currentQuestionIndex].question;
+    answerOne.textContent = newShuffledQuizQuestions[currentQuestionIndex].answers[0];
+    answerTwo.textContent = newShuffledQuizQuestions[currentQuestionIndex].answers[1];
+    answerThree.textContent = newShuffledQuizQuestions[currentQuestionIndex].answers[2];
+    answerFour.textContent = newShuffledQuizQuestions[currentQuestionIndex].answers[3];
 }
 
 for (i = 0; i < answerButton.length; i++) {
     answerButton[i].addEventListener("click", function (event) {
-    if (event.target.textContent === newShuffledQuizQuestions[0].answer) {
+    if (event.target.textContent === newShuffledQuizQuestions[currentQuestionIndex].answer) {
     correctText.setAttribute("Style", "display: block");
     score += 10;
     leftHeader.innerText = (`Score: ${score}`);
+    currentQuestionIndex ++;
+    renderQuestions();
 } else {
     inCorrectText.setAttribute("Style", "display: block");
     timeLeft -= 10;
+    currentQuestionIndex ++;
+    renderQuestions();
 }
 })
 };
