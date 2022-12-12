@@ -81,18 +81,16 @@ let startQuiz = startButton.addEventListener("click", function() {
 
 let renderQuestions = function () {
     questionsVar.style.display = "block";
-    for (let i = 0; i < newShuffledQuizQuestions.length; i++) {
-    questionsStart.textContent = newShuffledQuizQuestions[i].question;
-    answerOne.textContent = newShuffledQuizQuestions[i].answers[0];
-    answerTwo.textContent = newShuffledQuizQuestions[i].answers[1];
-    answerThree.textContent = newShuffledQuizQuestions[i].answers[2];
-    answerFour.textContent = newShuffledQuizQuestions[i].answers[3];
-    }
+    questionsStart.textContent = newShuffledQuizQuestions[0].question;
+    answerOne.textContent = newShuffledQuizQuestions[0].answers[0];
+    answerTwo.textContent = newShuffledQuizQuestions[0].answers[1];
+    answerThree.textContent = newShuffledQuizQuestions[0].answers[2];
+    answerFour.textContent = newShuffledQuizQuestions[0].answers[3];
 }
 
 for (i = 0; i < answerButton.length; i++) {
     answerButton[i].addEventListener("click", function (event) {
-    if (event.target.textContent === newShuffledQuizQuestions[i].answer) {
+    if (event.target.textContent === newShuffledQuizQuestions[0].answer) {
     correctText.setAttribute("Style", "display: block");
     score += 10;
     leftHeader.innerText = (`Score: ${score}`);
