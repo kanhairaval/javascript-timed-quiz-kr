@@ -154,5 +154,5 @@ function renderLastRegistered() {
   })
 
   goBackBtn.addEventListener("click", function () {
-    window.location= "http://127.0.0.1:5500/index.html";
+    window.location.reload();
   })
