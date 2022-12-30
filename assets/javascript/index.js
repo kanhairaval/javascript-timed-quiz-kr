@@ -84,12 +84,16 @@ let startQuiz = startButton.addEventListener("click", function() {
 });
 
 let renderQuestions = function () {
+    if (currentQuestionIndex < 6) {
     questionsVar.style.display = "block";
     questionsStart.textContent = newShuffledQuizQuestions[currentQuestionIndex].question;
     answerOne.textContent = newShuffledQuizQuestions[currentQuestionIndex].answers[0];
     answerTwo.textContent = newShuffledQuizQuestions[currentQuestionIndex].answers[1];
     answerThree.textContent = newShuffledQuizQuestions[currentQuestionIndex].answers[2];
     answerFour.textContent = newShuffledQuizQuestions[currentQuestionIndex].answers[3];
+    } else {
+        displayMessage();
+    }
 }
 
 for (i = 0; i < answerButton.length; i++) {
