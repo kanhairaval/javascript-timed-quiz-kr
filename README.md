@@ -1,26 +1,33 @@
-# JavaScript-Timed-Quiz
+# Study-Guide-Webpage
 
-# Description
+## Description
 
-# This is a multiple choice quiz. Answer correctly to gain points & answer wronf and you shall lose time.
+This study guide was created for bootcamo students who were going through the Prework. it contains notes on HTML, CSS, git, and JacaScript.
 
-# What was your motivation? To test my JavaScript knowledge.
+- What was your motivation?
+    To make managing notes & content easily accesible.
+- Why did you build this project?
+    To help reduce anxiety of starting the bootcamp by organising everthying in one spot.
+- What problem does it solve?
+    It helps to keep information in a central location, so as it is readily avaialble for review
+- What did you learn?
+    Basic, HTML, CSS, git, & JavaScript along with CLI/Terminal & various GitHub features.
 
-# Why did you build this project? To help improve javaScript Knowledge.
 
-# What problem does it solve? It helps understand JavaScript & WEB APIs in a better way.
+## Installation
 
-# What did you learn? JavaScript & WEB APIs.
+   N/A
 
-# Installation
-N/A
+## Usage
 
-#Usage
-## Just use the deployed link from GitHub pages.
+To use this Study Guide, you can review the notes in each section. For suggestions on what to study first, open the Chrome DevTools by pressing Command+Option+i (MAC OS) or Control+Shift+I (Windows). A console panel should open either below or to the side of the webpage in the browser. There you will see a list of topics we learned from Prework along with a suggestion on which topic to study first.
 
-# Credits
-## BCS Learning Assistant's available through slack
-## Youtube & Google
+## Credits
 
-# License
-## Please refer to the license in the repo.
+- Prework modules
+- BCS Learning Assistant's available through slack
+- Youtube & Google
+
+## License
+
+Please refer to the license in the repo.
